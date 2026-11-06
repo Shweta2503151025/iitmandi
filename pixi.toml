@@ -1,0 +1,18 @@
+[workspace]
+authors = ["Shweta Yadav <msc2503151025@iiti.ac.in>"]
+channels = ['conda-forge']
+name = "iitmandi"
+platforms = ['linux-64', "osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+lab = { cmd = "jupyter lab", description = "Launch JupyterLab" }
+start = { depends-on = [{ task = "lab" }], description = "Start exploring the Pixi project" }
+d0-fit = { cmd = "python d0_mass_fit_demo.py", description = "Fit D0 invariant mass using SciPy" }
+
+[dependencies]
+scipy = ">=1.18.1,<2"
+matplotlib = ">=3.11.2,<4"
+numpy = ">=2.5.4,<3"
+notebook = ">=7.6.4,<8"
+jupyterlab = ">=4.6.5,<5"
